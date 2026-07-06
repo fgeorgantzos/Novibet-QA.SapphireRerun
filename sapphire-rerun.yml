@@ -4,7 +4,7 @@ name: Sapphire - rerun failed scenarios
 # because workflow_run cannot trigger across repositories.
 on:
   schedule:
-    - cron: "0 6 * * *"          # TODO: set to shortly after the nightly finishes (UTC)
+    - cron: "0 4 * * *"         # TODO: set to shortly after the nightly finishes (UTC)
   workflow_dispatch:
     inputs:
       name_contains:
@@ -98,7 +98,7 @@ jobs:
             --original-json failed.json \
             --run-numbers "${{ steps.dispatch.outputs.run_numbers }}" --team Sapphire \
             --html-out site/index.html --slack-out slack.json \
-            --pages-url "https://<ORG>.github.io/<REPO>/"
+            --pages-url "https://fgeorgantzos.github.io/novibet-qa.sapphirerun/"
 
       - name: Upload Pages artifact
         if: steps.extract.outputs.count != '0'
